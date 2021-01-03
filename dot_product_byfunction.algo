@@ -1,0 +1,31 @@
+FUNCTION DOT_PRODUCT(v1: ARRAY_OF FLOAT[n], v2: ARRAY_OF FLOAT[m]) : FLOAT
+VAR
+    i : INTEGER
+    ps : FLOAT
+BEGIN
+    ps:=0
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR i FROM 0 TO m-1 STEP 1  DO
+            Read(v1[i]);
+            Read(v2[i]);
+            ps:=ps+v1[i]*v2[i];
+        END_FOR
+    END_FOR
+    RETURN ps ;
+END
+
+
+ALGORITHM IS_ORTHOGONAL(n:INTEGER)
+VAR
+    V1 , V2 : ARRAY_OF FLOAT;
+    i : INTEGER
+    x : FLOAT
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+    x := DOT_PRODUCT(V1,V2);
+    IF (x = 0) THEN
+            Write('V1 and V2 are orthogonal')
+    else Write('V1 and V2 are not orthogonal')
+    END_IF
+    END_FOR
+END
